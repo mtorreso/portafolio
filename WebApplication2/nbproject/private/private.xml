@@ -12,9 +12,14 @@
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Manuel/Documents/proyecto%20de%20titulo/WebApplication2/web/Crear_Material.jsp</file>
-            <file>file:/C:/Users/Manuel/Documents/proyecto%20de%20titulo/WebApplication2/web/departamentos.jsp</file>
-            <file>file:/C:/Users/Manuel/Documents/proyecto%20de%20titulo/WebApplication2/web/ubicaciones.jsp</file>
+            <file>file:/C:/Users/Manuel/Documents/proyecto%20de%20titulo/WebApplication2/src/java/Negocio/ValidarUser.java</file>
+            <file>file:/C:/Users/Manuel/Documents/proyecto%20de%20titulo/WebApplication2/src/java/Negocio/CrearDepartamento.java</file>
+            <file>file:/C:/Users/Manuel/Documents/proyecto%20de%20titulo/WebApplication2/src/java/Negocio/Logout.java</file>
+            <file>file:/C:/Users/Manuel/Documents/proyecto%20de%20titulo/WebApplication2/src/java/Negocio/CrearUser.java</file>
+            <file>file:/C:/Users/Manuel/Documents/proyecto%20de%20titulo/WebApplication2/src/java/Negocio/Usuario.java</file>
+            <file>file:/C:/Users/Manuel/Documents/proyecto%20de%20titulo/WebApplication2/src/java/Negocio/ModificaUser.java</file>
+            <file>file:/C:/Users/Manuel/Documents/proyecto%20de%20titulo/WebApplication2/src/java/Modelo/BuscarReserva.java</file>
+            <file>file:/C:/Users/Manuel/Documents/proyecto%20de%20titulo/WebApplication2/src/java/Negocio/RegistraCliente.java</file>
         </group>
     </open-files>
 </project-private>

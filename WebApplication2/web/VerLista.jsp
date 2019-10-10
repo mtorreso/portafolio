@@ -50,7 +50,7 @@
         <link rel="stylesheet" href="multimedia/css/font-awesome.min.css">
         <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
-        <title>Lista de usuarios</title>
+        <title>Turimo Real | Portafolio de Título</title>
     </head>
     <body>
         <div class="bg-top navbar-light">
@@ -91,7 +91,6 @@
                         <li class="nav-item"><a href="Admin.jsp" class="nav-link pl-0">Home</a></li>
                         <li class="nav-item"><a href="VerLista.jsp" class="nav-link"><span class="glyphicon glyphicon-cog"></span>Usuarios</a></li>
                         <li class="nav-item"><a href="departamentos.jsp" class="nav-link">Departamentos</a></li>
-                        <li class="nav-item"><a href="ubicaciones.jsp" class="nav-link">Ubicaciones</a></li>
                         <li class="nav-item"><a href="#" class="nav-link">Reportes</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">

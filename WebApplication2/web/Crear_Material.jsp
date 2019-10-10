@@ -51,7 +51,7 @@
                 <label class="control-label col-sm-2" for="ubicacion">Ubicación</label>
                 <div class="col-sm-10">
 
-                 <!--   <select class="form-control selectric" name="ubicacion">
+                  <select class="form-control selectric" name="ubicacion">
                         <option value="">Seleccionar</option>
 
                         <%
@@ -61,9 +61,9 @@
                         %>
                         <option value="<%= d.getNombreLocalidad()%>"><%= d.getNombreLocalidad()%></option>  
                         <%}%>
-                    </select>-->
+                    </select>
                         
-                        <input type="text" name="ubicacion">
+                     <!--   <input type="text" name="ubicacion">-->
 
 
 

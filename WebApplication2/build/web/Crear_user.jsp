@@ -48,6 +48,7 @@
         <link rel="stylesheet" href="multimedia/css/font-awesome.min.css">
         <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
         <script type="text/javascript" src="js/validarut.js"></script>
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
         <title>Crear Usuario</title>
     </head>
     <body>
@@ -157,64 +158,129 @@
                                     <div class="panel-heading">Nuevo Usuario</div>
                                     <div class="card-body">
                                         <form id="Formulario" class="form-horizontal" role="form" action="CrearUser" method="POST">
-                                            <div class="form-group">
-                                                <label class="control-label col-sm-2" for="rut">Rut</label>
-                                                <div class="col-sm-10">
-                                                    <input type="text" class="form-control" name="rut" id="rut" placeholder="Ingrese Rut sin puntos" onblur="onRutBlur(this);">
+                                            <div class="col-md-8 col-md-offset-2"> 
+                                                <div class="progress">
+                                                    <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
                                                 </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="control-label col-sm-2" for="nombre">Nombre</label>
-                                                <div class="col-sm-10">
-                                                    <input type="text" class="form-control" name="nombre" id="nombre">
+                                                <div class="step well">
+                                                    <div class="form-group">
+                                                        <label class="control-label col-sm-2" for="rut">Rut</label>
+                                                        <div class="col-sm-10">
+                                                            <input type="text" class="form-control" name="rut" id="rut" placeholder="Ingrese Rut sin puntos" onblur="onRutBlur(this);">
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="control-label col-sm-2" for="apellido">Apellido</label>
-                                                <div class="col-sm-10">
-                                                    <input type="text" class="form-control" name="apellido" id="apellido">
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="control-label col-sm-2" for="email">Email</label>
-                                                <div class="col-sm-10">
-                                                    <input type="email" class="form-control" name="correo" id="email" placeholder="ejemplo@email.com">
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="control-label col-sm-2" for="pwd">Password</label>
-                                                <div class="col-sm-10">          
-                                                    <input type="password" class="form-control" name="pass" id="pwd">
-                                                </div>
-                                            </div>
+                                                <div class="step well">
+                                                    <div class="form-group">
+                                                        <label class="control-label col-sm-2" for="nombre">Nombre</label>
+                                                        <div class="col-sm-10">
+                                                            <input type="text" class="form-control" name="nombre" id="nombre">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="control-label col-sm-2" for="apellido">Apellido</label>
+                                                        <div class="col-sm-10">
+                                                            <input type="text" class="form-control" name="apellido" id="apellido">
+                                                        </div>
+                                                    </div>
 
-                                            <div class="form-group">
-                                                <label class="control-label col-sm-2" for="tipo">Tipo de usuario</label>
-                                                <div class="col-sm-10">          
-                                                    <select class="form-control" id="tipo" name="rol">
-                                                        <option value="0">Seleccione...</option>
-                                                        <option value="1">Administrador</option>
-                                                        <option value="2">Funcionario</option>
-                                                        <!---  <option value="3">Técnico Hidráulico</option>-->
-                                                        <!--  <option value="4">Operador Telefónico</option>-->
-                                                        <option value="5">Cliente</option>
-                                                    </select>
+                                                </div>
+                                                <div class="step well">
+                                                    <div class="form-group">
+                                                        <label class="control-label col-sm-2" for="email">Email</label>
+                                                        <div class="col-sm-10">
+                                                            <input type="email" class="form-control" name="correo" id="email" placeholder="ejemplo@email.com">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="control-label col-sm-2" for="pwd">Password</label>
+                                                        <div class="col-sm-10">          
+                                                            <input type="password" class="form-control" name="pass" id="pwd">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="step well">
+                                                    <div class="form-group">
+                                                        <label class="control-label col-sm-2" for="tipo">Tipo de usuario</label>
+                                                        <div class="col-sm-10">          
+                                                            <select class="form-control" id="tipo" name="rol">
+                                                                <option value="0">Seleccione...</option>
+                                                                <option value="1">Administrador</option>
+                                                                <option value="2">Funcionario</option>
+                                                                <!---  <option value="3">Técnico Hidráulico</option>-->
+                                                                <!--  <option value="4">Operador Telefónico</option>-->
+                                                                <option value="5">Cliente</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="submit" class="btn btn-success">Registrar</button>
+                                                    <button class="action back btn btn-danger">Anterior</button>
+                                                    <button class="action next btn btn-warning">Siguiente</button>
                                                 </div>
                                             </div>
-                                            <div class="modal-footer">
-                                                <button type="submit" class="btn btn-success">Registrar</button>
-                                                <button type="reset" class="btn btn-warning"> Limpiar</button>                        
-                                                <a href="Admin.jsp" class="btn btn-danger">Volver</a>
-
-
-                                            </div>
-
                                         </form>
                                     </div>
                                 </div>
                             </div>
 
                             <%@include file="common/footer.jsp" %>
+                            <script type="text/javascript">
+                                $(document).ready(function () {
+                                    var current = 1;
+
+                                    widget = $(".step");
+                                    btnnext = $(".next");
+                                    btnback = $(".back");
+                                    // Init buttons and UI
+                                    widget.not(':eq(0)').hide();
+                                    hideButtons(current);
+                                    setProgress(current);
+
+                                    // Next button click action
+                                    btnnext.click(function () {
+                                        if (current < widget.length) {
+                                            widget.show();
+                                            widget.not(':eq(' + (current++) + ')').hide();
+                                            setProgress(current);
+                                        }
+                                        hideButtons(current);
+                                    })
+
+                                    // Back button click action
+                                    btnback.click(function () {
+                                        if (current > 1) {
+                                            current = current - 2;
+                                            btnnext.trigger('click');
+                                        }
+                                        hideButtons(current);
+                                    })
+                                });
+
+                                // Change progress bar action
+                                setProgress = function (currstep) {
+                                    var percent = parseFloat(100 / widget.length) * currstep;
+                                    percent = percent.toFixed();
+                                    $(".progress-bar").css("width", percent + "%").html(percent + "%");
+                                }
+
+
+                                // Hide buttons according to the current step
+                                hideButtons = function (current) {
+                                    var limit = parseInt(widget.length);
+                                    $(".action").hide();
+                                    if (current < limit)
+                                        btnnext.show();
+                                    if (current > 1)
+                                        btnback.show();
+                                    if (current == limit) {
+                                        btnnext.hide();
+                                    }
+                                }
+
+
+                            </script>
                             <script type="text/javascript">
                                 function onRutBlur(obj) {
                                     if (VerificaRut(obj.value))

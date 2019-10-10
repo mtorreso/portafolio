@@ -147,8 +147,8 @@
 </div>
 <div class="container">
     <div class="row">
-        <div  id="scroll" class="col-12 col-sm-3">
-            <div class="card bg-white mb-3">
+        <div   class="col-11 col-sm-3">
+            <div class="card bg-white mb-5">
                 <div class="card-header bg bg-info text-white text-uppercase"><i class="fa fa-list"></i>Localidades</div>
                 <form action="BuscarDepartamento" method="post">
                     <ul class="list-group category_block">
@@ -162,7 +162,6 @@
                             <option class="list-group-item" value = "<%=l.getNombreLocalidad()%>"><%=l.getNombreLocalidad()%></option> 
                             <%}%>
                         </select>
-
                     </ul>
                 </form>
             </div>

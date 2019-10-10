@@ -20,8 +20,6 @@
 <link type="text/css" rel="stylesheet" href="styles/jquery.news-ticker.css">
 
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-
-
 <!-- GOOGLE FONT -->
 <link href='https://fonts.googleapis.com/css?family=Hind:400,300,500,600%7cMontserrat:400,700' rel='stylesheet'
       type='text/css'>
@@ -61,15 +59,11 @@
 <!------ Include the above in your HEAD tag ---------->
 
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-<style>
-    #scroll{
-        border:0px solid;
-        height:300px;
-        width:300px;
-        overflow-y:scroll;
-        overflow-x:hidden;
-    }
-</style>
+
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<script type="text/javascript" src="js/validarut.js"></script>
+
 <div class="bg-top navbar-light">
     <div class="container">
         <div class="row no-gutters d-flex align-items-center align-items-stretch">
@@ -100,6 +94,7 @@
                         </div>
                     </div>
                 </form>
+
             </div>
         </div>
     </div>
@@ -118,79 +113,142 @@
         </div> 
     </div>
 </nav>
-        <section class="ftco-section bg-light">
-            <c:if test="${requestScope.error!=null}">
-                <script> alert('<c:out value="${requestScope.error}"/>')</script>
-            </c:if>
-            <c:if test="${requestScope.msg!=null}">
-                <script> alert('<c:out value="${requestScope.msg}"/>')</script>
-            </c:if>
-            <div class="container">
-                <div class="panel panel-blue" style="background:#FFF;">
-                    <div class="panel-heading">Nueva Cuenta</div>
-                    <div class="card-body">
-                        <form id= "Formulario" class="form-horizontal" role="form" action="RegistraCliente" method="POST">
+<section class="ftco-section bg-light">
+    <c:if test="${requestScope.error!=null}">
+        <script> alert('<c:out value="${requestScope.error}"/>')</script>
+    </c:if>
+    <c:if test="${requestScope.msg!=null}">
+        <script> alert('<c:out value="${requestScope.msg}"/>')</script>
+    </c:if>
+    <div class="container">
+        <br><br>
+        <div class="panel panel-blue" style="background:#FFF;">
+            <div class="panel-heading">Nueva Cuenta</div>
+            <div class="card-body">
+                <form id= "Formulario" class="form-horizontal" role="form" action="RegistraCliente" method="POST">
+                    <div class="col-md-8 col-md-offset-2">   	
+                         <div class="progress">
+                             <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
+                         </div>
+                        <div class="step well">
                             <div class="form-group">
-                                <label class="control-label col-sm-2" for="rut" >Rut</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="rut" id="rut" placeholder="Ingrese Rut sin puntos"onblur="onRutBlur(this);">
-                                </div>
-                            </div>
+                                <label for="rut">Rut:</label>
+                                <input type="text" class="form-control" name="rut" id="rut" placeholder="Ingrese Rut sin puntos"onblur="onRutBlur(this);">
+                            </div>                         
+                        </div>
+                        <div class="step well">
                             <div class="form-group">
-                                <label class="control-label col-sm-2" for="nombre">Nombre</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control"  name="nombre"id="nombre">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="control-label col-sm-2" for="apellido">Apellido</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="apellido" id="apellido">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="control-label col-sm-2" for="email">Email</label>
-                                <div class="col-sm-10">
-                                    <input type="email" class="form-control" name="correo" id="email" placeholder="ejemplo@email.com">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="control-label col-sm-2" for="pwd">Password</label>
-                                <div class="col-sm-10">          
-                                    <input type="password" class="form-control" name="pass" id="pwd">
-                                </div>
+                                <label for="nombre">Nombres:</label>
+
+                                <input type="text" class="form-control"  name="nombre"id="nombre">
 
                             </div>
-                            
-                            <div class="modal-footer">
-                                <button type="submit" class="btn btn-blue">Registrar</button>
-                                <button type="reset" class="btn btn-warning"> Limpiar</button>                        
-                                <a href="index.jsp" class="btn btn-danger">Volver</a>
+                            <div class="form-group">
+                                <label for="apellido">Apellidos</label>
+                                <input type="text" class="form-control" name="apellido" id="apellido">
                             </div>
-                            <div class="form-group">        
-                               
+
+                        </div>                       
+                        <div class="step well">
+                            <div class="form-group">
+                                <label for="email">Email</label>
+
+                                <input type="email" class="form-control" name="correo" id="email" placeholder="ejemplo@email.com">
+
                             </div>
-                        </form>
-                    </div>
-                </div>
+                            <div class="form-group">
+                                <label for="pwd">Password:</label>
+                                <input type="password" class="form-control" name="pass" id="pwd">
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-blue">Registrar</button>
+                            <button class="action back btn btn-danger">Anterior</button>
+                            <button class="action next btn btn-warning">Siguiente</button>
+                        </div>
+                    </div> 
+                </form>
             </div>
-        </section>
-     
-        <%@include file="common/footer.jsp" %>
-        <script type="text/javascript">
-            function onRutBlur(obj) {
-                if (VerificaRut(obj.value))
-                    return true;
-                else {
-                    alert("Rut incorrecto");
-                    var textbox = document.getElementById("rut");
-                    textbox.blur()();
-                }
+        </div>
+    </div>
+
+
+
+
+</section>
+
+<%@include file="common/footer.jsp" %>
+<script type="text/javascript">
+    $(document).ready(function () {
+        var current = 1;
+
+        widget = $(".step");
+        btnnext = $(".next");
+        btnback = $(".back");
+        // Init buttons and UI
+        widget.not(':eq(0)').hide();
+        hideButtons(current);
+        setProgress(current);
+
+        // Next button click action
+        btnnext.click(function () {
+            if (current < widget.length) {
+                widget.show();
+                widget.not(':eq(' + (current++) + ')').hide();
+                setProgress(current);
             }
-        </script>
-        <script language="JavaScript" src="js/validarCampos.js"></script>
-        <!--JQuery-->
-        <script src="content/jq/jquery-1.11.3.min.js"></script>
-        <script src="content/bootstrap/js/bootstrap.js"></script>
-    </body>
+            hideButtons(current);
+        })
+
+        // Back button click action
+        btnback.click(function () {
+            if (current > 1) {
+                current = current - 2;
+                btnnext.trigger('click');
+            }
+            hideButtons(current);
+        })
+    });
+
+    // Change progress bar action
+    setProgress = function (currstep) {
+        var percent = parseFloat(100 / widget.length) * currstep;
+        percent = percent.toFixed();
+        $(".progress-bar").css("width", percent + "%").html(percent + "%");
+    }
+
+
+    // Hide buttons according to the current step
+    hideButtons = function (current) {
+        var limit = parseInt(widget.length);
+        $(".action").hide();
+        if (current < limit)
+            btnnext.show();
+        if (current > 1)
+            btnback.show();
+        if (current == limit) {
+            btnnext.hide();
+        }
+    }
+
+
+</script>
+
+<script type="text/javascript">
+    function onRutBlur(obj) {
+        if (VerificaRut(obj.value))
+            return true;
+        else {
+            alert("Rut incorrecto");
+            var textbox = document.getElementById("rut");
+            textbox.blur()();
+        }
+    }
+</script>
+
+<script language="JavaScript" src="js/validarCampos.js"></script>
+<!--JQuery-->
+<script src="content/jq/jquery-1.11.3.min.js"></script>
+<script src="content/bootstrap/js/bootstrap.js"></script>
+</body>
 </html>

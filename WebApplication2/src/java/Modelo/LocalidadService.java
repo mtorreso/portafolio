@@ -19,15 +19,5 @@ public class LocalidadService {
         webservice.ServicioDepartamento_Service service = new webservice.ServicioDepartamento_Service();
         webservice.ServicioDepartamento port = service.getServicioDepartamentoPort();
         return port.listarLocalidades();
-    }
-
-   public String nuevalocalidad(java.lang.String nombreLocalidad) {
-        webservice.ServicioDepartamento_Service service = new webservice.ServicioDepartamento_Service();
-        webservice.ServicioDepartamento port = service.getServicioDepartamentoPort();
-        return port.nuevalocalidad(nombreLocalidad);
-    }
-    
-    
-    
-    
+    } 
 }

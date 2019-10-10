@@ -53,7 +53,7 @@ public class ValidarUser extends HttpServlet {
                             break;
                         
                         case 5:
-                            sesion.setAttribute("tipo", "Cliente/Administrador de Edificio");
+                            sesion.setAttribute("tipo", "Cliente");
                             request.getRequestDispatcher("Cliente.jsp").forward(request, response);
                             break;
                     }
