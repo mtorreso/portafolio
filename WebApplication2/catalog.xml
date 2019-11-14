@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
-    <system systemId="http://localhost:29369/Servicio/ServicioDepartamento?wsdl" uri="src/conf/xml-resources/web-service-references/ServicioDepartamento/wsdl/localhost_29369/Servicio/ServicioDepartamento.wsdl"/>
-    <system systemId="http://localhost:29369/Servicio/ServicioDepartamento?xsd=1" uri="src/conf/xml-resources/web-service-references/ServicioDepartamento/wsdl/localhost_29369/Servicio/ServicioDepartamento.xsd_1.xsd"/>
-    <system systemId="http://localhost:29369/Servicioturismo/ServicioDepartamento?wsdl" uri="src/conf/xml-resources/web-service-references/ServicioDepartamento/wsdl/localhost_29369/Servicioturismo/ServicioDepartamento.wsdl"/>
-    <system systemId="http://localhost:29369/Servicioturismo/ServicioDepartamento?xsd=1" uri="src/conf/xml-resources/web-service-references/ServicioDepartamento/wsdl/localhost_29369/Servicioturismo/ServicioDepartamento.xsd_1.xsd"/>
-</catalog>
