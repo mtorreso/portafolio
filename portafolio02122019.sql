@@ -1,5 +1,5 @@
 --------------------------------------------------------
--- Archivo creado  - sábado-noviembre-30-2019   
+-- Archivo creado  - lunes-diciembre-02-2019   
 --------------------------------------------------------
 --------------------------------------------------------
 --  DDL for Sequence DEMO_CUST_SEQ
@@ -70,7 +70,7 @@
 --  DDL for Sequence SEQ_SERVICIO
 --------------------------------------------------------
 
-   CREATE SEQUENCE  "PORTAFOLIO"."SEQ_SERVICIO"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 1 CACHE 20 NOORDER  NOCYCLE ;
+   CREATE SEQUENCE  "PORTAFOLIO"."SEQ_SERVICIO"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 21 CACHE 20 NOORDER  NOCYCLE ;
 --------------------------------------------------------
 --  DDL for Sequence USUARIO_SEQUENCIA
 --------------------------------------------------------
@@ -166,6 +166,21 @@
   PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
   TABLESPACE "USERS" ;
 --------------------------------------------------------
+--  DDL for Table PLANIFICARTRANSPORTE
+--------------------------------------------------------
+
+  CREATE TABLE "PORTAFOLIO"."PLANIFICARTRANSPORTE" 
+   (	"ID_PLANIFICACION" NUMBER, 
+	"ID_SOLICITUD" VARCHAR2(20 BYTE), 
+	"CONDUCTOR" VARCHAR2(100 BYTE), 
+	"AUTO" VARCHAR2(100 BYTE), 
+	"PATENTE" VARCHAR2(100 BYTE)
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
 --  DDL for Table RESERVA
 --------------------------------------------------------
 
@@ -222,6 +237,23 @@
   PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
   TABLESPACE "USERS" ;
 --------------------------------------------------------
+--  DDL for Table SOLICITUDTRANSPORTE
+--------------------------------------------------------
+
+  CREATE TABLE "PORTAFOLIO"."SOLICITUDTRANSPORTE" 
+   (	"ID_SOLICITUD" NUMBER, 
+	"ID_RESERVA" VARCHAR2(20 BYTE), 
+	"FECHA_SOLICITUD" VARCHAR2(20 BYTE), 
+	"HORA_SOLICITUD" VARCHAR2(20 BYTE), 
+	"ORIGEN" VARCHAR2(100 BYTE), 
+	"DESTINO" VARCHAR2(100 BYTE), 
+	"ESTADO" VARCHAR2(100 BYTE) DEFAULT 0
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
 --  DDL for Table USUARIO
 --------------------------------------------------------
 
@@ -259,16 +291,20 @@ Insert into PORTAFOLIO.CHECKIN (ID_CHECKIN,FECHA_CHECKIN,DESCRIPCION,ID_RESERVA)
                                         ','13');
 Insert into PORTAFOLIO.CHECKIN (ID_CHECKIN,FECHA_CHECKIN,DESCRIPCION,ID_RESERVA) values ('27','29/11/2019','<p style="text-align: left;">prueba</p>
 <p style="text-align: left;">Se actualiza la hora de llegada a las 15:30 de la tarde</p>','13');
+Insert into PORTAFOLIO.CHECKIN (ID_CHECKIN,FECHA_CHECKIN,DESCRIPCION,ID_RESERVA) values ('28','30/11/2019','<p style="text-align: left;">prueba</p>
+<p style="text-align: left;">Se actualiza la hora de llegada a las 15:30 de la tarde</p>
+<p style="text-align: left;">El cliente ha contratado servicio de transporte&nbsp;</p>','13');
 REM INSERTING into PORTAFOLIO.CHECKOUT
 SET DEFINE OFF;
 Insert into PORTAFOLIO.CHECKOUT (ID_CHECKOUT,FECHA_CHECKOUT,DESCRIPCION,ID_RESERVA) values ('1','2019-11-29','<p>nueva acta</p>','13');
 REM INSERTING into PORTAFOLIO.DEPARTAMENTO
 SET DEFINE OFF;
-Insert into PORTAFOLIO.DEPARTAMENTO (ID,NOMBRE,UBICACION,BANOS,HABITACIONES,VALORARRIENDO,DESCRIPCION,FECHA,DIRECCION,HABILITADO) values ('103','Edificio Santa Clara','Santiago','2','2','155000','Se arrienda departamento acogedor en plaza de la dignidad . ex plaza Italia ','29/11/2019','Av arturo prat 55','1');
+Insert into PORTAFOLIO.DEPARTAMENTO (ID,NOMBRE,UBICACION,BANOS,HABITACIONES,VALORARRIENDO,DESCRIPCION,FECHA,DIRECCION,HABILITADO) values ('103','Edificio Santa Clara','Santiago','2','2','155000','Se arrienda departamento acogedor en plaza de la dignidad . ex plaza Italia ','29/11/2019','Av arturo prat 55','0');
 Insert into PORTAFOLIO.DEPARTAMENTO (ID,NOMBRE,UBICACION,BANOS,HABITACIONES,VALORARRIENDO,DESCRIPCION,FECHA,DIRECCION,HABILITADO) values ('101','Edificio San Diego','Santiago','1','2','270000','                                                                                                                        En arriendo
                                     
                                     
                                     ','2019-11-28','Sargento Aldea 11445','0');
+Insert into PORTAFOLIO.DEPARTAMENTO (ID,NOMBRE,UBICACION,BANOS,HABITACIONES,VALORARRIENDO,DESCRIPCION,FECHA,DIRECCION,HABILITADO) values ('104','Edificio San juan','Colchane','3','3','45000','En arriendo','30/11/2019','Matucana 45','1');
 REM INSERTING into PORTAFOLIO.INVENTARIO
 SET DEFINE OFF;
 Insert into PORTAFOLIO.INVENTARIO (ID_INV,ID_DEPTO,PRODUCTO,CANTIDAD,ESTADO,DESCRIPCION,CATEGORIA) values ('66','101','Mesa de madera','1','Activo','  Mesa de centro living
@@ -622,9 +658,13 @@ Insert into PORTAFOLIO.LOCALIDAD (ID_LOCALIDAD,NOMBRE_LOCALIDAD) values ('663','
 Insert into PORTAFOLIO.LOCALIDAD (ID_LOCALIDAD,NOMBRE_LOCALIDAD) values ('664','Timaukel');
 Insert into PORTAFOLIO.LOCALIDAD (ID_LOCALIDAD,NOMBRE_LOCALIDAD) values ('665','Natales');
 Insert into PORTAFOLIO.LOCALIDAD (ID_LOCALIDAD,NOMBRE_LOCALIDAD) values ('666','Torres del Paine');
+REM INSERTING into PORTAFOLIO.PLANIFICARTRANSPORTE
+SET DEFINE OFF;
+Insert into PORTAFOLIO.PLANIFICARTRANSPORTE (ID_PLANIFICACION,ID_SOLICITUD,CONDUCTOR,AUTO,PATENTE) values ('4','4','Juan Perez','Mazda 10','AB543CD');
 REM INSERTING into PORTAFOLIO.RESERVA
 SET DEFINE OFF;
 Insert into PORTAFOLIO.RESERVA (ID_RESERVA,FECHA_RESERVA,CANTIDAD_PERSONAS,FECHA_SALIDA,RUT,ID_DEPARTAMENTO) values ('13','2019-11-28','4','2019-11-30','1111111-1','101');
+Insert into PORTAFOLIO.RESERVA (ID_RESERVA,FECHA_RESERVA,CANTIDAD_PERSONAS,FECHA_SALIDA,RUT,ID_DEPARTAMENTO) values ('14','2019-12-01','4','2019-12-19','18213561-6','103');
 REM INSERTING into PORTAFOLIO.ROL
 SET DEFINE OFF;
 Insert into PORTAFOLIO.ROL (ID_ROL,DESCRIPCION) values ('1','Administrador');
@@ -636,12 +676,26 @@ Insert into PORTAFOLIO.SERV (ID_SERV,FECHA_CONTRATACION,ID_SRV,ID_RESERVA) value
 REM INSERTING into PORTAFOLIO.SERVICIO
 SET DEFINE OFF;
 Insert into PORTAFOLIO.SERVICIO (ID_SRV,NOMBRE_SRV,PRECIO,ID_DEPARTAMENTO) values ('62','Netflix','5600','101');
+REM INSERTING into PORTAFOLIO.SOLICITUDTRANSPORTE
+SET DEFINE OFF;
+Insert into PORTAFOLIO.SOLICITUDTRANSPORTE (ID_SOLICITUD,ID_RESERVA,FECHA_SOLICITUD,HORA_SOLICITUD,ORIGEN,DESTINO,ESTADO) values ('4','14','2019-12-01','22:05','Santiago','Talca','1');
 REM INSERTING into PORTAFOLIO.USUARIO
 SET DEFINE OFF;
-Insert into PORTAFOLIO.USUARIO (ID_USUARIO,RUT,NOMBRE,CORREO,TELEFONO,CLAVE,ID_ROL) values ('386','1111111-2','Roberto Gonzalez','rober.gonzalez@alumnos.duoc.cl','7822249','123','2');
 Insert into PORTAFOLIO.USUARIO (ID_USUARIO,RUT,NOMBRE,CORREO,TELEFONO,CLAVE,ID_ROL) values ('388','1-9','Renzo Espeleta','renzo.espeleta@gmail.com','945745586','123','2');
-Insert into PORTAFOLIO.USUARIO (ID_USUARIO,RUT,NOMBRE,CORREO,TELEFONO,CLAVE,ID_ROL) values ('383','18213561-5','Manuel Torres ','alejandro.torresolivos@gmail.com','931378869','123','1');
-Insert into PORTAFOLIO.USUARIO (ID_USUARIO,RUT,NOMBRE,CORREO,TELEFONO,CLAVE,ID_ROL) values ('393','1111111-1','Matias Quezada','mat.quezadav@alumnos.duoc.cl','931378878','123','3');
+Insert into PORTAFOLIO.USUARIO (ID_USUARIO,RUT,NOMBRE,CORREO,TELEFONO,CLAVE,ID_ROL) values ('383','18213561-5','Manuel Torres  Olivos','alejandro.torresolivos@gmail.com','931378869','123','1');
+Insert into PORTAFOLIO.USUARIO (ID_USUARIO,RUT,NOMBRE,CORREO,TELEFONO,CLAVE,ID_ROL) values ('412','18213561-6','Manuel Torres','manu.torreso@alumnos.duoc.cl','931378869','123','3');
+Insert into PORTAFOLIO.USUARIO (ID_USUARIO,RUT,NOMBRE,CORREO,TELEFONO,CLAVE,ID_ROL) values ('393','1111111-1','Matias Quezada','mat.quezadav@alumnos.duoc.cl','931378877','123','3');
+Insert into PORTAFOLIO.USUARIO (ID_USUARIO,RUT,NOMBRE,CORREO,TELEFONO,CLAVE,ID_ROL) values ('411','1-5','Gonzalez Roberto','gonzalezrobertodc@gmail.com','7822249','123','3');
+Insert into PORTAFOLIO.USUARIO (ID_USUARIO,RUT,NOMBRE,CORREO,TELEFONO,CLAVE,ID_ROL) values ('410','1111111-2','Roberto Gonzalez','rober.gonzalez@alumnos.duoc.cl','98458978','123','2');
+--------------------------------------------------------
+--  DDL for Index LOCALIDADES_PK
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "PORTAFOLIO"."LOCALIDADES_PK" ON "PORTAFOLIO"."LOCALIDAD" ("NOMBRE_LOCALIDAD") 
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" ;
 --------------------------------------------------------
 --  DDL for Index SERVICIOS_PK
 --------------------------------------------------------
@@ -652,10 +706,10 @@ Insert into PORTAFOLIO.USUARIO (ID_USUARIO,RUT,NOMBRE,CORREO,TELEFONO,CLAVE,ID_R
   PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
   TABLESPACE "USERS" ;
 --------------------------------------------------------
---  DDL for Index LOCALIDADES_PK
+--  DDL for Index PLANIFICARTRANSPORTE_PK
 --------------------------------------------------------
 
-  CREATE UNIQUE INDEX "PORTAFOLIO"."LOCALIDADES_PK" ON "PORTAFOLIO"."LOCALIDAD" ("NOMBRE_LOCALIDAD") 
+  CREATE UNIQUE INDEX "PORTAFOLIO"."PLANIFICARTRANSPORTE_PK" ON "PORTAFOLIO"."PLANIFICARTRANSPORTE" ("ID_PLANIFICACION") 
   PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
   STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
   PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
@@ -728,6 +782,23 @@ end;
 /
 ALTER TRIGGER "PORTAFOLIO"."NUEVACUENTA" ENABLE;
 --------------------------------------------------------
+--  DDL for Trigger NUEVAPLANIFICACION
+--------------------------------------------------------
+
+  CREATE OR REPLACE TRIGGER "PORTAFOLIO"."NUEVAPLANIFICACION" 
+   before insert on "PORTAFOLIO"."PLANIFICARTRANSPORTE" 
+   for each row 
+begin  
+   if inserting then 
+      if :NEW."ID_PLANIFICACION" is null then 
+         select SEQ_SERVICIO.nextval into :NEW."ID_PLANIFICACION" from dual; 
+      end if; 
+   end if; 
+end;
+
+/
+ALTER TRIGGER "PORTAFOLIO"."NUEVAPLANIFICACION" ENABLE;
+--------------------------------------------------------
 --  DDL for Trigger NUEVARESERVA
 --------------------------------------------------------
 
@@ -745,6 +816,23 @@ end;
 
 /
 ALTER TRIGGER "PORTAFOLIO"."NUEVARESERVA" ENABLE;
+--------------------------------------------------------
+--  DDL for Trigger NUEVASOLICITUD
+--------------------------------------------------------
+
+  CREATE OR REPLACE TRIGGER "PORTAFOLIO"."NUEVASOLICITUD" 
+   before insert on "PORTAFOLIO"."SOLICITUDTRANSPORTE" 
+   for each row 
+begin  
+   if inserting then 
+      if :NEW."ID_SOLICITUD" is null then 
+         select SEQ_CONTRATAR_SERVICIOS.nextval into :NEW."ID_SOLICITUD" from dual; 
+      end if; 
+   end if; 
+end;
+
+/
+ALTER TRIGGER "PORTAFOLIO"."NUEVASOLICITUD" ENABLE;
 --------------------------------------------------------
 --  DDL for Trigger NUEVOCHECK
 --------------------------------------------------------
@@ -1313,6 +1401,16 @@ END f_retorna_rut;
   ALTER TABLE "PORTAFOLIO"."USUARIO" MODIFY ("NOMBRE" NOT NULL ENABLE);
   ALTER TABLE "PORTAFOLIO"."USUARIO" MODIFY ("RUT" NOT NULL ENABLE);
   ALTER TABLE "PORTAFOLIO"."USUARIO" MODIFY ("ID_USUARIO" NOT NULL ENABLE);
+--------------------------------------------------------
+--  Constraints for Table PLANIFICARTRANSPORTE
+--------------------------------------------------------
+
+  ALTER TABLE "PORTAFOLIO"."PLANIFICARTRANSPORTE" ADD CONSTRAINT "PLANIFICARTRANSPORTE_PK" PRIMARY KEY ("ID_PLANIFICACION")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS"  ENABLE;
+  ALTER TABLE "PORTAFOLIO"."PLANIFICARTRANSPORTE" MODIFY ("ID_PLANIFICACION" NOT NULL ENABLE);
 --------------------------------------------------------
 --  Constraints for Table SERVICIO
 --------------------------------------------------------
